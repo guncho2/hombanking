@@ -47,7 +47,7 @@ function validSaldo(monto) {
     if (monto <= saldoCuenta) {
         return true;
     } else if (monto >= saldoCuenta) {
-        alert("No hay saldo disponible en tu cuenta para extraer esa cantidad de dinero ");
+        alert("No hay saldo disponible en tu cuenta para extraer o transferir esa cantidad de dinero ");
         return false;
     }
 }
