@@ -2,7 +2,8 @@
 var nombreUsuario = "Eduardo";
 var saldoCuenta = 20000;
 var limiteExtraccion = 5000;
-// var pin = 0101;
+const codigoSeguridad = 1010;
+
 
 
 
@@ -22,7 +23,7 @@ var ctaChr = ["Caja de Ahorro", 54321];
 
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
-window.onload = function () {
+window.onload = function() {
     iniciarSesion();
     cargarNombreEnPantalla();
     actualizarSaldoEnPantalla();
@@ -185,7 +186,7 @@ function transferirDinero() {
 
     if ((validSaldo(monto)) && (validMulti(monto))) {
 
-        var destTransfer = parseInt(prompt("Ingrese numero de cuenta"));
+        var destTransfer = parseInt(prompt("Ingrese numero de cuenta: 12345 o 54321 ?"));
 
         if (destTransfer == ctaCte[1] || destTransfer == ctaChr[1]) {
 
@@ -209,7 +210,7 @@ function transferirDinero() {
 }
 
 function iniciarSesion() {
-    const codigoSeguridad = 1010;
+
     let pregunta = prompt('Bienvenido ' + nombreUsuario + '\n' + 'Ingrese su codigo de seguridad');
     if (pregunta != codigoSeguridad) {
         alert('Codigo incorrecto ' + '\n' + 'Su dinero ha sido retenido');
