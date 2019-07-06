@@ -63,7 +63,7 @@ function validMulti(monto) {
     }
 }
 
-function valValid(monto) {
+function valNaN(monto) {
     if (isNaN(monto)) {
         alert("Ingrese un monto valido");
         return false;
@@ -71,6 +71,28 @@ function valValid(monto) {
         return true;
     }
 }
+
+
+function valNull(monto) {
+    if (monto = null) {
+        alert("Ingrese un monto valido");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function valNega(monto) {
+    if (monto < 0) {
+        alert("No puede ingresar valores de menos de 0$");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
+
 
 function extrMont(monto) {
     saldoCuenta = saldoCuenta - monto;
@@ -88,8 +110,8 @@ function depMont(monto) {
 function cambiarLimiteDeExtraccion() {
 
     var limite = parseInt(prompt("Ingrese el Limite de Extraccion"));
-    if ((validSaldo(limite)) && (validMulti(limite)) && (valValid(limite)) &&
-        (validSaldo(limite))) {
+    if ((validSaldo(limite)) && (validMulti(limite)) && (valNaN(limite)) &&
+        (validSaldo(limite)) && (valNull(limite)) && (valNega(limite))) {
         var limiteExtraccionAnterior = limiteExtraccion;
 
         alert("Tu nuevo Limite de Extraccion es de: $" +
@@ -102,8 +124,8 @@ function cambiarLimiteDeExtraccion() {
 
 function extraerDinero() {
     monto = parseInt(prompt("Ingrese el Monto a Extraer"));
-    if ((ValidLimitExt(monto)) && (validMulti(monto)) && (valValid(monto)) &&
-        (validSaldo(monto))) {
+    if ((ValidLimitExt(monto)) && (validMulti(monto)) && (valNaN(monto)) &&
+        (validSaldo(monto)) && (valNull(monto)) && (valNega(monto))) {
         var saldoAnterior = saldoCuenta;
         extrMont(monto);
 
@@ -118,7 +140,7 @@ function extraerDinero() {
 
 function depositarDinero() {
     monto = parseInt(prompt("Ingrese el Monto a Depositar"));
-    if ((validMulti(monto)) && (valValid(monto))) {
+    if ((validMulti(monto)) && (valNaN(monto)) && (valNull(monto)) && (valNega(monto))) {
         var saldoAnterior = saldoCuenta;
         depMont(monto);
 
@@ -131,8 +153,8 @@ function depositarDinero() {
 
 function pagoDeServicio(servicio, monto) {
     var monto = servicio;
-    if ((valValid(monto)) &&
-        (validSaldo(monto))) {
+    if ((valNaN(monto)) &&
+        (validSaldo(monto)) && (valNull(monto)) && (valNega(monto))) {
         var saldoAnterior = saldoCuenta;
         extrMont(monto);
         alert("Has pagado en servicio$ " + monto + ".\n Tu Saldo anterior fue de: $" +
@@ -150,6 +172,8 @@ function pagarServicio() {
         "3." + "Internet" + ":$" + "210" + '\n' +
         "4." + "Telefono" + ":$" + "570" + '\n' +
         "Que servicio desea abonar")
+
+
 
 
 
